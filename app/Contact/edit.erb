@@ -1,0 +1,40 @@
+<div class="toolbar">
+	<h1 id="pageTitle">
+		Edit
+	</h1>
+</div>
+
+<form title="Edit Contact" 
+	  class="panel" id="contact_edit_form" method="POST" 
+	  action="<%=url_for(:action => :update)%>" selected="true">
+	<fieldset>
+		<input type="hidden" name="contact[id]" value="<%= @contact['id'] %>"/>
+		
+		  <div class="row">
+			  <label>First Name: </label>
+			  <input type="text" name="contact[first_name]" value="<%= @contact['first_name'] %>"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>Last Name: </label>
+			  <input type="text" name="contact[last_name]" value="<%= @contact['last_name'] %>"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>Email Address: </label>
+			  <input type="text" name="contact[email_address]" value="<%= @contact['email_address'] %>"/>
+		  </div>
+		
+		  <div class="row">
+			  <label>Business Number: </label>
+			  <input type="text" name="contact[business_number]" value="<%= @contact['business_number'] %>"/>
+		  </div>
+		
+	</fieldset>
+	<input type="submit" value="Update"/>
+	<p align="center">
+		<a href="<%=url_for(:action => :delete, :id => @contact['id'])%>">
+			<font color="#990000">Delete</font>
+		</a>
+	</p>
+</form>
