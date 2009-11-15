@@ -1,4 +1,6 @@
 Rhomobile Contacts Sample
 -------------------------------------------------------------
 
-This is a sample application for the upcoming book "Pro Smartphone Cross-Platform Development: iPhone, Blackberry, Windows Mobile and Android Development and Distribution"
+This is a sample application for the upcoming book "Pro Smartphone Cross-Platform Development: iPhone, Blackberry, Windows Mobile and Android Development and Distribution".
+
+Show how to use the PIM Contacts native device capability and jqtouch with rhodes.

@@ -1,32 +1,13 @@
 <div class="toolbar">
-	<h1 id="pageTitle">Info</h1>
+	<h1>Info</h1>
+	<a class="button" href="<%=url_for(:action => :edit, :id => @contact['id'])%>">Edit</a>
 </div>
 
-<div class="panel" selected="true">
+<ul class="edgetoedge">
+  <li>First Name <%=@contact['first_name']%></li>
+  <li>Last Name <%=@contact['last_name']%></li>
+  <li>Email Address <%= mailto(@contact['email_address'], @contact['email_address'])%></li>
+  <li>Business Number <%= click_to_call(@contact['business_number'])%></li>
+</ul>
 
-<a class="button right_button" href="<%=url_for(:action => :edit, :id => @contact['id'])%>" target="_self">Edit</a>
 
-<table class="grid">
-  
-  <tr>
-	<td class="gridleft">First Name</td>
-    <td class="gridright"><%=@contact['first_name']%></td>
-  </tr>
-  
-  <tr>
-	<td class="gridleft">Last Name</td>
-    <td class="gridright"><%=@contact['last_name']%></td>
-  </tr>
-  
-  <tr>
-	<td class="gridleft">Email Address</td>
-    <td class="gridright"><%= mailto(@contact['email_address'], @contact['email_address'])%></td>
-  </tr>
-  
-  <tr>
-	<td class="gridleft">Business Number</td>
-    <td class="gridright"><%= click_to_call(@contact['business_number'])%></td>
-  </tr>
-  
-</table>
-</div>
