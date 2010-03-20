@@ -1,13 +1,12 @@
 <div class="toolbar">
-	<h1>Info</h1>
-	<a class="button" href="<%=url_for(:action => :edit, :id => @contact['id'])%>">Edit</a>
+	<h1 id="pageTitle">Info</h1>
+	<a class="back" href="/app/Contact" target="_webapp">Back</a>
+	<a class="button slideup" target="_webapp" href="<%=url_for(:action => :edit, :id => @contact['id'])%>">Edit</a>
 </div>
 
-<ul class="edgetoedge">
+<div>
+<ul class="rounded">
   <li>First Name <%=@contact['first_name']%></li>
   <li>Last Name <%=@contact['last_name']%></li>
-  <li>Email Address <%= mailto(@contact['email_address'], @contact['email_address'])%></li>
-  <li>Business Number <%= click_to_call(@contact['business_number'])%></li>
 </ul>
-
-
+</div>

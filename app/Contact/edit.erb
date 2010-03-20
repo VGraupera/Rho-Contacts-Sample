@@ -1,11 +1,8 @@
 <div class="toolbar">
-	<h1 id="pageTitle">
-		Edit
-	</h1>
+	<h1>Edit</h1>
 </div>
 
-<form title="Edit Contact" 
-	  class="panel" id="contact_edit_form" method="POST" 
+<form id="contact_edit_form" method="POST" 
 	  action="<%=url_for(:action => :update)%>" selected="true">
 	<fieldset>
 		<input type="hidden" name="contact[id]" value="<%= @contact['id'] %>"/>

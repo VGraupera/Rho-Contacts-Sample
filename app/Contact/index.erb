@@ -1,9 +1,11 @@
 <div class="toolbar">
 	<h1>Contacts</h1>
-  <a class="button add slideup" href="/app/Contact/new">+</a>
+  <a class="button add slideup" target="_webapp" href="/app/Contact/new">+</a>
 </div>
 <ul id="contacts" class="edgetoedge">
 	<% @contacts.each do |x| %>
-		<li class="arrow"><%=link_to "#{x[1]['first_name']} #{x[1]['last_name']}", :action => :show, :id => x[1]['id']%></li>
+		<li class="arrow">
+		  <a href="<%= url_for :action => :show, :id => x[1]['id']%>" target="_webapp"><%= "#{x[1]['first_name']} #{x[1]['last_name']}" %></a>
+		</li>
 	<%end%>
 </ul>
