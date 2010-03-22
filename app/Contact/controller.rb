@@ -7,25 +7,20 @@ class ContactController < Rho::RhoController
   def index
     @contacts = Rho::RhoContact.find(:all)
     @contacts.to_a.sort! {|x,y| x[1]['first_name'] <=> y[1]['first_name'] } if @contacts
-    
-    render
   end
 
   # GET /Contact/{1}
   def show
     @contact = Rho::RhoContact.find(@params['id'])
-    render :action => :show
   end
 
   # GET /Contact/new
   def new
-    render :action => :new
   end
 
   # GET /Contact/{1}/edit
   def edit
     @contact = Rho::RhoContact.find(@params['id'])
-    render :action => :edit
   end
 
   # POST /Contact/create
