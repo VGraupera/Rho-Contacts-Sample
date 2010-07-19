@@ -1,22 +1,25 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Contacts</title>
-	  <link rel="stylesheet" href="/public/jqtouch/jqtouch.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="/public/themes/apple/theme.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <script src="/public/jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/public/jqtouch/jqtouch.js" type="text/javascript" charset="utf-8"></script>
 
-
-    <script type="text/javascript">
-      var jQT = $.jQTouch();
-    </script>
-
+		<% if System::get_property('platform') == 'APPLE' %>
+			<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+            <link href="/public/css/webkit.css" type="text/css" rel="stylesheet"/>
+			<link href="/public/css/iphone.css" type="text/css" rel="stylesheet"/>
+		<% elsif System::get_property('platform') == 'Blackberry' %>
+			<link href="/public/css/blackberry.css" type="text/css" rel="stylesheet"/>	
+		<% elsif  System::get_property('platform') == 'ANDROID' %>
+            <link href="/public/css/webkit.css" type="text/css" rel="stylesheet"/>
+			<link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
+		<% else %>
+			<link href="/public/css/windows_mobile.css" type="text/css" rel="stylesheet"/>
+		<% end %>	
+			
+				
 	</head>
 	<body>
-	  <div id="jqt">
-	    <div>
-  		<%= @content %>
-  		</div>
-		</div>
+		<%= @content %>
 	</body>
 </html>

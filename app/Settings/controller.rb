@@ -1,8 +1,10 @@
 require 'rho'
 require 'rho/rhocontroller'
 require 'rho/rhoerror'
+require 'helpers/browser_helper'
 
 class SettingsController < Rho::RhoController
+  include BrowserHelper
   
   def index
     @msg = @params['msg']
@@ -11,14 +13,14 @@ class SettingsController < Rho::RhoController
 
   def login
     @msg = @params['msg']
-    render :action => :login
+    render :action => :login, :back => '/app'
   end
 
   def login_callback
     errCode = @params['error_code'].to_i
     if errCode == 0
       # run sync if we were successful
-      WebView.navigate Rho::RhoConfig.start_path
+      WebView.navigate Rho::RhoConfig.options_path
       SyncEngine.dosync
     else
       if errCode == Rho::RhoError::ERR_CUSTOMSYNCSERVER
@@ -40,18 +42,18 @@ class SettingsController < Rho::RhoController
         render :action => :wait
       rescue Rho::RhoError => e
         @msg = e.message
-        render :action => :login, :query => {:msg => @msg}
+        render :action => :login
       end
     else
-      @msg = "You entered an invalid login/password, please try again." unless @msg && @msg.length > 0    
-      render :action => :login, :query => {:msg => @msg}
+      @msg = Rho::RhoError.err_message(Rho::RhoError::ERR_UNATHORIZED) unless @msg && @msg.length > 0
+      render :action => :login
     end
   end
   
   def logout
     SyncEngine.logout
     @msg = "You have been logged out."
-    render :action => :login, :query => {:msg => @msg}
+    render :action => :login
   end
   
   def reset

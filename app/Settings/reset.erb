@@ -1,15 +1,18 @@
-<div class="toolbar">
-	<h1 id="pageTitle">
-		Reset Database
-	</h1>
+<div id="pageTitle">
+	<h1>Reset Database</h1>
 </div>
 
-<ul id="reset_db" selected="true" title="Reset Database">
-  <h3>Are you sure (Resetting removes all objects from your device)?</h3>
-  <br/>
-  <br/>
-  <p class="whiteButton" align="center">
-	<%= link_to "Confirm", {:action => :do_reset}, "target=\"_self\""%><br/>
-  </p>
-  <a href="<%=Rho::RhoConfig.start_path%>" class="whiteButton" target="_self">Cancel</a><br/>
-</ul>
+
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Cancel", :action => :index %></div>
+    <div id="rightItem" class="blueButton"><%= link_to "Confirm", :action => :do_reset %></div>
+</div>
+
+
+<div id="content">
+    <div id="reset">
+          <h4>Are you sure?<br/>
+              Resetting removes all objects from your device.</h4>
+    </div>
+</div>

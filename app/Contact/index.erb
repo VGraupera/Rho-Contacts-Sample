@@ -1,11 +1,21 @@
-<div class="toolbar">
+<div id="pageTitle">
 	<h1>Contacts</h1>
-  <a class="button add slideup" target="_webapp" href="/app/Contact/new">+</a>
 </div>
-<ul id="contacts" class="edgetoedge">
-	<% @contacts.each do |x| %>
-		<li class="arrow">
-		  <a href="<%= url_for :action => :show, :id => x[1]['id']%>" target="_webapp"><%= "#{x[1]['first_name']} #{x[1]['last_name']}" %></a>
-		</li>
-	<%end%>
-</ul>
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "New", :controller => :Contact, :action => :new %></div>
+</div>
+
+<div id="content">
+    <ul>
+        <% @contacts.each do |obj| %>
+            <li>
+                <a href="<%= url_for :action => :show, :id => obj[1]['id'] %>">
+                    <span class="title"><%= "#{obj[1]['first_name']} #{obj[1]['last_name']}" %></span>
+                    <span class="disclosure_indicator"></span>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</div>

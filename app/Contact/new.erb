@@ -1,27 +1,37 @@
-<div class="toolbar">
-	<h1>New Contact</h1>
+<div id="pageTitle">
+	<h1>New <%= @contact.title %></h1>
 </div>
 
-<form method="POST" action="<%=url_for(:action => :create)%>">
-	  <ul>
-      <li>
-			  <input type="text" name="contact[first_name]" placeholder="First Name"/>
-		  </li>
-		
-		  <li>
-			  <input type="text" name="contact[last_name]" placeholder="Last Name"/>
-		  </li>
+<div id="toolbar">
+     <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :index %></div>
+</div>
 
-      <li>
-			  <input type="text" name="contact[email_address]" placeholder="Email Address"/>
-		  </li>
-		
-		  <li>
-			  <input type="text" name="contact[business_number]" placeholder="Business Number"/>
-		  </li>
-		  
-		  <li>	
-		    <input type="submit" value="Create"/>
-      </li>
-    </ul>
-</form>
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+            <input type="hidden" name="id" value="<%= @contact.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="contact[first_name]" class="fieldLabel">First name</label>
+                    <input type="text" name="contact[first_name]" <%= placeholder( "First name" ) %> />
+                </li>
+                
+                <li>
+                    <label for="contact[last_name]" class="fieldLabel">Last name</label>
+                    <input type="text" name="contact[last_name]" <%= placeholder( "Last name" ) %> />
+                </li>
+                
+                <li>
+                    <label for="contact[email_address]" class="fieldLabel">Email address</label>
+                    <input type="text" name="contact[email_address]" <%= placeholder( "Email address" ) %> />
+                </li>
+                
+                <li>
+                    <label for="contact[business_number]" class="fieldLabel">Business number</label>
+                    <input type="text" name="contact[business_number]" <%= placeholder( "Business number" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

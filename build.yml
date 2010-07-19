@@ -1,11 +1,16 @@
 sdk: "/Users/vidal/code/rho_apps/rhodes"
+sdkversion: 2.0.0
 name: Contacts
 version: 1.0
 vendor: rhomobile
+build: debug
 bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
 applog: rholog.txt
 iphone:
   configuration: Debug
-  sdk: iphonesimulator3.0
+  sdk: iphonesimulator4.0
+  provisionprofile:
   codesignidentity:
-  entitlements: 
+  entitlements:
+extensions: ["extension-name-here", "second-extension-name"]

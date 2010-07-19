@@ -1,7 +1,10 @@
 require 'rho/rhocontroller'
 require 'rho/rhocontact'
 
+require 'helpers/browser_helper'
+
 class ContactController < Rho::RhoController
+  include BrowserHelper
 
   #GET /Contact
   def index
